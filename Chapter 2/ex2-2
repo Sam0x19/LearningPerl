@@ -1,0 +1,8 @@
+#! /usr/bin/perl
+
+use warnings;
+
+my $PI = 3.141592654;
+print "Enter radius: ";
+chomp(my $radius = <STDIN>);
+print "Circumference of circle with radius $radius = ", 2*$PI*$radius, "\n";

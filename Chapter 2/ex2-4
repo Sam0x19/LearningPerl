@@ -1,0 +1,7 @@
+#! /usr/bin/perl
+
+print "Enter first number: ";
+chomp(my $first_num = <STDIN>);
+print "Enter second number: ";
+chomp(my $second_num = <STDIN>);
+print "$first_num * $second_num = ", $first_num * $second_num, "\n";

@@ -1,0 +1,7 @@
+#! /usr/bin/perl
+
+print "Enter string: ";
+my $string = <STDIN>;
+print "Enter number of times to repeat string: ";
+chomp(my $repeat = <STDIN>);
+print $string x $repeat;
