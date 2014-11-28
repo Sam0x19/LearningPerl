@@ -1,0 +1,16 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+sub total
+{
+   my $total;
+   foreach (@_) {
+      $total += $_;
+   }
+   $total;
+}
+
+my $user_total = total(1..1000);
+print "The total sum of the numbers from 1 to 1,000 is $user_total\n";

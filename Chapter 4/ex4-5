@@ -1,0 +1,23 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+use 5.014;
+
+sub greet
+{
+   state @last_people;
+   my $name = shift;
+   print "Hi $name!";
+   if (@last_people) {
+      print " I've seen: @last_people\n";
+   } else {
+      print " You are the first one here!\n";
+   }
+   push @last_people, $name;
+}
+
+greet("Fred");
+greet("Barney");
+greet("Wilma");
+greet("Betty");
