@@ -1,0 +1,13 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+print "Enter an alignment, followed by a list of strings:\n";
+chomp(my @strings = <STDIN>);
+my $alignment = shift @strings;
+my $ruler = '1234567890';
+print $ruler x (($alignment+9)/10), "\n";
+foreach (@strings) {
+   printf "%${alignment}s\n", $_;
+}

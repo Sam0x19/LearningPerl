@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+print "Enter a list of strings:\n";
+chomp(my @strings = <STDIN>);
+my $ruler = '1234567890';
+print $ruler x 4, "\n";
+foreach (@strings) {
+   printf "%20s\n", $_;
+}
