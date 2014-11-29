@@ -1,0 +1,15 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+my %words;
+
+foreach (<STDIN>) {
+   chomp;
+   $words{$_}++;
+}
+
+foreach my $entry (sort keys %words) {
+   print "$entry: $words{$entry}\n";
+}
