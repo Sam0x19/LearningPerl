@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+while (<>) {
+   chomp;
+   if (/\s\z/) {
+      print "matched $_^\n";
+   }
+}
+
