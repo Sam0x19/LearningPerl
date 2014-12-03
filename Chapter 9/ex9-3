@@ -1,0 +1,21 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+my $in_file = shift;
+if (!defined $in_file) {
+   die "no input file given";
+}
+
+open IN_FILE, $in_file;
+open OUT_FILE, '>', $in_file . ".out";
+while (<IN_FILE>) {
+   chomp;
+   s/fred/\0/ig;
+   s/wilma/Fred/ig;
+   s/\0/Wilma/ig;
+   print OUT_FILE "$_\n";
+}
+
+

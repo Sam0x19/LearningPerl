@@ -1,0 +1,13 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+$^I = ".bak";
+
+while(<>) {
+   if (/\A#!/) {
+      $_ .= "## Copyright (C) 2014 by Sam0x19\n";
+   }
+   print;
+}

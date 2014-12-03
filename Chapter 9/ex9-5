@@ -1,0 +1,25 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+my %files_to_copyright;
+foreach (@ARGV) {
+   $files_to_copyright{$_} = 1;
+}
+
+while (<>) {
+   if (/\A## Copyright/) {
+      delete $files_to_copyright{$ARGV};
+   }
+}
+
+@ARGV = sort keys %files_to_copyright;
+$^I = ".bak";
+
+while(<>) {
+   if (/\A#!/) {
+      $_ .= "## Copyright (C) 2014 by Sam0x19\n";
+   }
+   print;
+}
