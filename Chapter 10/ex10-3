@@ -1,0 +1,20 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+use 5.010;
+
+$ENV{ZERO} = 0;
+$ENV{EMPTY} = '';
+$ENV{UNDEF} = undef;
+
+my $max_length = 0;
+foreach (keys %ENV) {
+   if (length > $max_length) {
+      $max_length = length;
+   }
+}
+
+foreach my $var (sort keys %ENV) {
+   printf "%-*s %-1s\n", $max_length, $var, $ENV{$var} // "(undefined)";;
+}

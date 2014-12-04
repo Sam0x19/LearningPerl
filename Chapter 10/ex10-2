@@ -1,0 +1,19 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+my $secret_number = int(1 + rand 100);
+my $DEBUG = 1;
+print "The secret number is $secret_number\n" if $DEBUG;
+
+while (chomp(my $guess = <STDIN>)) {
+   print "User entered $guess\n" if $DEBUG;
+   if ($guess =~ /(quit|exit|^$)/i || $guess == $secret_number) {
+      last;
+   } elsif ($guess < $secret_number) {
+      print "Too low\n";
+   } else {
+      print "Too high\n";
+   }
+}
