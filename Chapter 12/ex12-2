@@ -1,0 +1,16 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+my $oldest_date;
+my $oldest_file;
+
+foreach (@ARGV) {
+   if (-M > $oldest_date) {
+      $oldest_date = -M _;
+      $oldest_file = $_;
+   }
+}
+
+print "$oldest_file is the oldest file.\n" if defined $oldest_date;

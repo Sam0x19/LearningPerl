@@ -1,0 +1,26 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+sub file_test
+{
+   if (! -e) {
+      return "does not exist";
+   }
+
+   my @properties;
+   push @properties, "readable" if -r _;
+   push @properties, "writable" if -w _;
+   push @properties, "executable" if -x _;
+
+   if (@properties) {
+      'is ' . join ' and ', @properties;
+   } else {
+      'exists'
+   }
+}
+
+foreach (@ARGV) {
+   printf "$_ %s\n", file_test;
+}
