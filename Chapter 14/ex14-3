@@ -1,0 +1,23 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+sub find_substring_positions
+{
+   (my $haystack, my $needle) = @_;
+   my @positions;
+   my $cur_index = -1;
+   while ((my $index = index $haystack, $needle, $cur_index + 1) != -1) {
+      push @positions, $index;
+      $cur_index = $index;
+   }
+   return @positions;
+}
+
+print "Enter string: ";
+chomp(my $haystack = <STDIN>);
+print "Enter substrng: ";
+chomp(my $needle = <STDIN>);
+my @positions = find_substring_positions($haystack, $needle);
+print "@positions\n";

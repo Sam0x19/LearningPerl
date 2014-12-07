@@ -1,0 +1,18 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+my %last_name = qw{
+   fred flintstone Wilma Flintstone Barney Rubble
+   betty rubble Bamm-Bamm Rubble PEBBLES FLINTSTONE
+};
+
+sub by_last_then_first_name
+{
+   lc $last_name{$a} cmp lc $last_name{$b} or lc $a cmp lc $b;
+}
+
+foreach (sort by_last_then_first_name keys %last_name) {
+   print "$_ $last_name{$_}\n";
+}
