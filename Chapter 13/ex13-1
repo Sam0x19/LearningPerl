@@ -1,0 +1,15 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+print "Enter a directory name: ";
+chomp(my $dir_name = <STDIN>);
+if ($dir_name eq "") {
+   chdir or die "Could not change to home directory: $!";
+} else {
+   chdir $dir_name or die "Could not change to directory $dir_name: $!";
+}
+foreach (glob "*") {
+   print "$_\n";
+}

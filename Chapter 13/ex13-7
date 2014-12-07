@@ -1,0 +1,16 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+use File::Basename;
+
+my $symlink = shift if $ARGV[0] eq "-s";
+(my $old, my $new) = @ARGV;
+(my $old_filename, my $old_dirname) = fileparse $old;
+(my $new_filename, my $new_dirname) = fileparse $new;
+$new = $new_dirname . $old_filename unless $new_filename;
+if ($symlink) {
+   symlink $old, $new or die "failed to create symlink: $!";
+} else {
+   link $old, $new or die "failed to create link: $!";
+}
