@@ -1,0 +1,14 @@
+#! /usr/bin/perl
+
+use warnings;
+no warnings 'experimental';
+use strict;
+use v5.14;
+
+print "Enter a number: ";
+chomp(my $number = <STDIN>);
+given ($number) {
+   when ($number % 3 == 0) {print "Fizz\n"; continue}
+   when ($number % 5 == 0) {print "Bin\n"; continue}
+   when ($number % 7 == 0) {print "Sausage\n"}
+}

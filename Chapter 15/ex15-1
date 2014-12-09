@@ -1,0 +1,22 @@
+#! /usr/bin/perl
+
+use warnings;
+no warnings 'experimental';
+use strict;
+use v5.18;
+
+my $secret_number = int(1 + rand 100);
+
+while (chomp(my $guess = <STDIN>)) {
+   given ($guess) {
+      when ($guess =~ /(quit|exit|^\s*$)/i || $guess == $secret_number) {
+         exit;
+      } when ($guess < $secret_number) {
+         print "Too low\n";
+      } when ($guess > $secret_number) {
+         print "Too high\n";
+      } default {
+         print "Not a number\n"
+      }
+   }
+}
