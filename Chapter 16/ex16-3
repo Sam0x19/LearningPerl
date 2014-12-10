@@ -1,0 +1,14 @@
+#! /usr/bin/perl
+
+use warnings;
+no warnings 'experimental';
+use strict;
+use v5.14;
+
+my @weekdays = qw(Mon Tue Wed Thu Fri);
+my @weekends = qw(Sat Sun);
+my $date = substr `date`, 0, 3;
+given ($date) {
+   when (@weekdays) {print "get to work\n"}
+   when (@weekends) {print "go play\n"}
+}

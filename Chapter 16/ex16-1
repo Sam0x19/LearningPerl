@@ -1,0 +1,8 @@
+#! /usr/bin/perl
+
+use warnings;
+use strict;
+
+my $directory = "/";
+chdir $directory or die "$!";
+system "ls", "-l";
